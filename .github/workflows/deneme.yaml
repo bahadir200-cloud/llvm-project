@@ -11,7 +11,7 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: Install dependencies
-          run: sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && sudo apt update && sudo apt-get build-dep libllvm
+          run: echo 'no dependencies'
         - name: Configure
           run: ./configure
         - name: Build
