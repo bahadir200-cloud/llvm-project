@@ -1,0 +1,20 @@
+name: Ubuntu (x64)
+
+
+on:
+    workflow_dispatch
+
+
+jobs:
+  deneme1:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: Install dependencies
+          run: contrib/download_prerequisites && sudo apt install flex
+        - name: Configure
+          run: echo 'no config'
+        - name: Build
+          run: cmake -S llvm -B build -G Ninja
+        - name: Install
+          run: sudo make install
