@@ -13,8 +13,8 @@ jobs:
         - name: Install dependencies
           run: sudo apt-get install ninja-build
         - name: Configure
-          run: echo 'no config'
+          run: cmake -S llvm -B build -G Ninja
         - name: Build
-          run: cmake -S llvm -B build -G ninja
+          run: sudo cmake --build build
         - name: Install
           run: sudo make install
