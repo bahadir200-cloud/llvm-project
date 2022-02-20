@@ -11,9 +11,9 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: Install dependencies
-          run: contrib/download_prerequisites && sudo apt install flex
+          run: sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && sudo apt update && sudo apt-get build-dep libllvm
         - name: Configure
-          run: echo 'no config'
+          run: ./configure
         - name: Build
           run: cmake -S llvm -B build -G Ninja
         - name: Install
