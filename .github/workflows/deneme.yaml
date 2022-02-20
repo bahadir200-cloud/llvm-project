@@ -13,7 +13,7 @@ jobs:
         - name: Install dependencies
           run: echo 'no dependencies'
         - name: Configure
-          run: ./configure
+          run: echo 'no config'
         - name: Build
           run: cmake -S llvm -B build -G Ninja
         - name: Install
